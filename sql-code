@@ -1,0 +1,54 @@
+#sql
+CREATE TABLE Salesman (
+    Salesman_id INT PRIMARY KEY,
+    Name VARCHAR(20),
+    City VARCHAR(20),
+    Commission DECIMAL(10,2)
+
+);
+INSERT INTO Salesman VALUES (5001, 'James', 'new york', 0.15), (5002,'nail knete', 'paris', 0.13), (5005, 'pit alex','london', 0.11), (5006, 'mc lyon', 'paris', 0.14), (5007, 'paul adam', 'washington dc', 0.17 );
+
+SELECT * FROM Salesman;
+
+CREAT TABLE IF NOT EXISTS Salesman(
+    Salesman_id INT PRIMARY KEY,
+    Name VARCHAT(20),
+    City VARCHAR(20),
+    Commission DECIMAL(10,2)
+
+);
+INSERT INTO Salesman VALUES (5001, 'James', 'new york', 0.15), (5002,'nail knete', 'paris', 0.13), (5005, 'pit alex','london', 0.11), (5006, 'mc lyon', 'paris', 0.14), (5007, 'paul adam', 'washington dc', 0.17 );
+SELECT * FROM Salesman;
+
+CREATE TABLE IF NOT EXISTS Orders(
+    Ord_no INT PRIMARY KEY,
+    Purch_amt DECIMAL(10,2),
+    Ord_date DATE,
+    Customer_id INT,
+    Salesman_id int
+);
+
+INSERT INTO Orders Values (70001, 150.5, ''
+'2012-10-05', 3005,5002), (70009, 270.65, '2012-09-10', 3001, 5005), (70002, 65.26, '2012-1005', 3002, 5001,),
+(7004, 110.5, '2012-08-17', 3009, 5003);
+SELECT * FROM Orders;
+
+
+                          
+
+    
+
+
+
+
+
+
+
+                   
+
+
+    
+
+    
+   
+
