@@ -33,6 +33,109 @@ INSERT INTO Orders Values (70001, 150.5, ''
 (7004, 110.5, '2012-08-17', 3009, 5003);
 SELECT * FROM Orders;
 
+-- REATE TABLE Salesman (
+--     Salesman_id INT PRIMARY KEY,
+--     Name VARCHAR(20),
+--     City VARCHAR(20),
+--     Commission DECIMAL(10,2)
+
+-- );
+-- INSERT INTO Salesman VALUES (5001, 'James', 'new york', 0.15), (5002,'nail knete', 'paris', 0.13), (5005, 'pit alex','london', 0.11), (5006, 'mc lyon', 'paris', 0.14), (5007, 'paul adam', 'washington dc', 0.17 );
+
+-- SELECT * FROM Salesman;
+
+-- CREAT TABLE IF NOT EXISTS Salesman(
+--     Salesman_id INT PRIMARY KEY,
+--     Name VARCHAT(20),
+--     City VARCHAR(20),
+--     Commission DECIMAL(10,2)
+
+-- );
+-- INSERT INTO Salesman VALUES (5001, 'James', 'new york', 0.15), (5002,'nail knete', 'paris', 0.13), (5005, 'pit alex','london', 0.11), (5006, 'mc lyon', 'paris', 0.14), (5007, 'paul adam', 'washington dc', 0.17 );
+-- SELECT * FROM Salesman;
+
+-- CREATE TABLE IF NOT EXISTS Orders(
+--     Ord_no INT PRIMARY KEY,
+--     Purch_amt DECIMAL(10,2),
+--     Ord_date DATE,
+--     Customer_id INT,
+--     Salesman_id int
+-- );
+
+-- INSERT INTO Orders Values (70001, 150.5, ''
+-- '2012-10-05', 3005,5002), (70009, 270.65, '2012-09-10', 3001, 5005), (70002, 65.26, '2012-1005', 3002, 5001,),
+-- (7004, 110.5, '2012-08-17', 3009, 5003);
+-- SELECT * FROM Orders;
+
+--Student Table Queries
+CREATE TABLE IF NOT EXISTS STUDENT (
+    ROLL_NO TEXT PRIMARY KEY,
+    NAME TEXT NOT NULL,
+    ADDRESS TEXT,
+    PHONE TEXT,
+    AGE INTEGER
+);
+
+INSERT INTO STUDENT(ROLL_NO, NAME, ADDRESS, PHONE, AGE) VALUES
+('1', 'RAM', 'DELHI', '*******', 18),
+('2', 'RAMESH', 'GURGAON', '******', 18),
+('3', 'SUJIT', 'ROHTAK', '********', 20),
+('4', 'SURECH', 'DELHI', '********', 18),
+('5', 'AMAN', 'ROHTAK', '******', 20),
+('6', 'HARSH', 'GURGAON', '*********', 18);
+
+SELECT * FROM STUDENT;
+
+SELECT * FROM STUDENT WHERE AGE = 18 AND ADDRESS = 'DELHI';
+
+SELECT * FROM STUDENT WHERE AGE = 18 AND NAME = 'RAM';
+
+SELECT * FROM STUDENT WHERE NAME = 'RAM' OR NAME = 'SUJIT';
+
+SELECT * FROM STUDENT WHERE NAME = 'RAM' OR AGE = 20;
+
+SELECT * FROM STUDENT WHERE AGE = 18 AND ( NAME = 'RAM' OR  NAME = 'RAMESH');
+
+--Product Price Queries
+CREATE TABLE IF NOT EXISTS PRODUCT (
+PRODUCT_ID TEXT PRIMARY KEY,
+PRODUCT_NAME TEXT,
+PRODUCT_PRICE TEXT,
+PRODUCT_COM TEXT
+);
+
+INSERT INTO PRODUCT(PRODUCT_ID,PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_COM)
+VALUES
+    ("101", "MOTHER BOARD", "3200", "15"),
+    ("102", "KEY BOARD", "450", "16"),
+    ("103", "ZIP DRIVE", "250", "14"),
+    ("104", "SPEAKER", "550", "16"),
+    ("105", "MONITOR", "5000", "11"),
+    ("106", "DVD DRIVE", "900", "12"),
+    ("107", "CD DRIVE", "800", "12");
+
+SELECT pro_name, pro_price
+    FROM PRODUCT
+    WHERE pro_price = 
+    (SELECT MIN(pro_price) FORM PRODUCT);
+SELECT pro_name, pro_price
+    FROM PRODUCT
+    WHERE pro_price = 
+    (SELECT MAX(pro_price) FORM PRODUCT);
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
 
                           
 
