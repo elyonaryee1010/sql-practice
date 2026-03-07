@@ -117,6 +117,108 @@ SELECT SUM(PRICEREAL) AS Total_Price
 FROM PRODUCTS;
 
 
+
+--Noble Prize
+CREATE TABLE IF NOT EXISTS noble_win (
+   year INTEGER,
+   winner TEXT,
+   country TEXT,
+   category TEXT,
+);
+
+INSERT INTO noble_win(year,winner,coutnry,category)VALUES
+('2025', 'Person1', 'USA', 'Physics'),
+('2024', 'Person2', 'Sweden', 'Chemistry'),
+('2023', 'Person3', 'Norway', 'Biology'),
+('2022', 'Person4', 'Canada', 'Quantum Physics'),
+('2021', 'Person5', 'Egypt', 'Peace')
+
+SELECT * FROM noble_win WHERE NOT LIKE 'P%'
+ORDER BY year DESC, winner ASC
+
+--Department Table and Aggregate Queries--
+CREATE TABLE IF NOT EXISTS DEPARTMENT (
+   emp_id INT TEXT,
+   NAME TEXT,
+   dept_id TEXT,
+    manager_id TEXT,alary_id DECIMAL(10,2),
+  
+   
+);
+
+INSERT INTO DEPARTMENT VALUES
+('101', 'Employee1', 'ID01', 'MG01', 34.2),
+('102', 'Employee2', 'ID02', 'MG02',35.2),
+('103', 'Employee3', 'ID03', 'MG03',36.2),
+('104', 'Employee4', 'ID04', 'MG04',37.2),
+('105', 'Employee5', 'ID05', 'MG05',38.2);
+
+SELECT department_id AS "Department Code",
+
+COUNT(*) AS "No of Employees"
+
+FROM DEPARTMENT
+
+GROUP BY department_id;
+
+-- Query to sum the salary of each department
+
+SELECT department_id, SUM(salary)
+
+FROM DEPARTMENT
+
+GROUP BY department_id;
+
+-- Query to count the number of employees and sum the salary in each department
+
+SELECT department_id AS "Department Code",
+
+COUNT(*) AS "No of Employees",
+
+SUM(salary) AS "Total Salary"
+
+FROM DEPARTMENT
+
+GROUP BY department_id;
+
+-- Query to sum the salary of employees with a specific manager
+
+SELECT department_id AS "Department Code",
+
+SUM(salary) AS "Total Salary"
+
+FROM DEPARTMENT
+
+WHERE MANAGER_ID = '103'
+
+GROUP BY department_id;
+
+-- Query to find departments with more than 2 employees
+
+SELECT department_id, COUNT(*) AS "No. of Employees"
+
+FROM DEPARTMENT
+
+GROUP BY department_id
+
+HAVING COUNT(*) > 2;
+
+
+   
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
     
 
 
