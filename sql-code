@@ -207,6 +207,122 @@ HAVING COUNT(*) > 2;
    
 
 
+
+
+
+--Capstone Project-1---
+create table if not exists salesman(
+   salesman_id int  primary key,
+   name varchar(20),
+   city varchar(20),
+   grade varchar(20)
+
+);
+insert salesman_id into values
+('1', 'Person1', 'Tehran', 'Grade 9'),
+('2', 'Person2', 'Sydney', 'Grade 8'),
+('3', 'Person3', 'Wellington', 'Grade 7'),
+('4', 'Person4', 'Madrid', 'Grade 6');
+
+--Customer
+CREATE TABLE IF NOT EXISTS Customer(
+   customer_name INT PRIMARY KET,
+   city varchar(20),
+   grade varchar(20),
+   salesman_id varchar(20),
+  
+);
+INSERT INTO Customer INTO VALUES
+('1', 'Person1', 'Tehran', 'Grade 9'),
+('2', 'Person2', 'Sydney', 'Grade 8'),
+('3', 'Person3', 'Wellington', 'Grade 7'),
+('4', 'Person4', 'Madrid', 'Grade 6');
+
+--Orders
+--Noble Prize
+CREATE TABLE IF NOT EXISTS Orders(
+   Orders_name INT PRIMARY KET,
+   customer_name varchar(20),
+   grade varchar(20),
+   salesman_id varchar(20),
+   purchase_amount decimal(10,2)
+  
+);
+INSERT INTO Customer INTO VALUES
+('1', 'Person1', 'Tehran', 'Grade 9', 2),
+('2', 'Person2', 'Sydney', 'Grade 8', 3),
+('3', 'Person3', 'Wellington', 'Grade 7', 4),
+('4', 'Person4', 'Madrid', 'Grade 6', 5);
+
+select customer.customer_name, salesman.name, salesmancity
+from customer
+join salesman on customer.city = salesman.city;
+
+select customer.customer_name, salesman.name
+from customer
+join salesman on customer.salesman_id = salesman.salesman_id;
+
+select orders.ord_no, customer.custname, orders.customer_id, orders.salesman_id
+from orders
+join customers on orders.customer_id = customer.customer_id
+join salesman on orders.salesman_id = salesman.salesman_id
+where customer.city <> salesman.city;
+
+select orders.ord_no, customer.customer_name
+from orders join customer on orders.customer_id = customer.customer_id;
+
+select customer.cust_name as 'customer', customer.grade as 'Grade'
+from orders
+join salesman on orders.salesman_id = salesman.salesman_id
+join customer on orders.customer_id = customer.customer_id
+where customer.grade IS NOT NULL;
+
+select customer.customer_name as 'customer',
+customer.city as 'city',
+salesman.name as 'salesman',
+salesman comission
+from customer
+join salesman on customer.salesman_id = salesman.salesman_id
+where salesman.comission between '0.12' and '0.14';
+
+select orders.ord_no,
+customer.customer_name,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+    
+
+
+
+
+
+
+
+
+
     
 
 
