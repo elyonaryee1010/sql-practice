@@ -296,6 +296,79 @@ customer.customer_name,
 
 
 
+--CAPSTONE PROJECT-2-SQL
+CREATE TABLE IF NOT EXISTS Restaurant (
+    name TEXT,
+    neighborhood,
+    CUSISINE TEXT,
+    REVIEW REAL,
+    PRICE TEXT,
+    HEALTH TEXT
+   );
+
+INSERT INTO RESTAURANT(NAME, NEIGHBORHOOD, CUISINE, REVIEW, PRICE, HEALTH)
+VALUES 
+   ('PETER', 'BROOKLYN', 'STEAK', 4.4, '$$$$', 'A'),
+   ('JONGRO', 'MIDTOWN', 'KOREAN', 3.5, '$$', 'A')
+      'JONGRO', 'brooklyn', 'CHINESE', 4.5, '$$', 'A')
+
+
+--1 What are the distinct neighborhood
+SELECT DISTINCT neighborhood
+FROM Restaurant
+--2 What are the distinct cuisine types?
+select distinct cuisine
+from restaurant
+--3 Suppose we would like some Chinese takeout.
+select *
+from restaurant
+where cuisine = 'Chinese';
+--4 Return all the restaurants with reviews of 4 and above.
+select *
+from restaurant
+where review >= 4.0
+--5 Suppose Abbi and Ilana want to have dinner. Return all the restaurants that are Italian and $$$. 
+select *
+from restaurant
+where cuisine = 'Italian' AND
+price in ['$$', '$$$');
+--6 If you want to find Italian restaurants with exactly three dollar signs: 
+select *
+from restaurant
+where price = '$$$'
+--7 Your coworker Trey can’t remember the exact name of a restaurant he went to but he knows it contains the word ‘Candy’ in it. Can you find it for him using a query?
+select * 
+from restaurant
+where cname  like '%Candy%'
+--8 Let’s order delivery to the house! Find all the close-by spots in Midtown, Downtown or Chinatown 
+select *
+from restaurant
+where neighborhood IN ('midtown', 'downtown', 'chinatown');
+--9 Find all the health grade pending restaurants (empty values). 
+select *
+from restaurant
+where health = '' or health is null;
+
+--10 Create a Top 4 Restaurants Ranking based on reviews
+
+select * 
+from restaurant
+order by review desc
+limit 4;
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
