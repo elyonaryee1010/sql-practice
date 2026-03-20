@@ -358,6 +358,33 @@ limit 4;
    
 
 
+#Guess the database
+print("What is the database?")
+number = int(input("Enter number"))
+
+if number == 2:
+    print("Correct. Now tell your mentor how you did it.")
+else:
+    print("Wrong try again")
+
+#Connect to SQLite database
+import sqlite3
+
+database = 'database.sqlite'
+
+import pandas as pd
+tables = pd.read.sql("""SELECT *
+                     FROM sqlite_master
+                     WHERE type='table';""", conn)
+tables
+
+
+
+
+
+  
+            
+        
 
 
 
